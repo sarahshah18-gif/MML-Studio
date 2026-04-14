@@ -170,25 +170,38 @@
             font-family: 'Poppins', sans-serif;
         }
         
-        .color-grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 12px; 
+        /* New Palette Styling */
+        .palette-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .color-box {
-            position: relative;
-            height: 44px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
+        .palette-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
-        input[type="color"] { 
-            position: absolute; top: -5px; left: -5px; width: 120%; height: 120%;
-            cursor: pointer; border: none; background: none;
+        .palette-swatch {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: transform 0.2s, border-color 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
+        .palette-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .palette-swatch.active {
+            border-color: var(--text-main);
+            transform: scale(1.1);
+        }
         .divider { 
             height: 1px; 
             background: var(--border-color); 
