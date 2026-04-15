@@ -333,17 +333,19 @@
             <input type="range" id="amplitude" min="1" max="50" step="0.5" value="10">
         </div>
 
-        <div class="color-grid">
-            <div class="control-group">
-                <label>Wave Colour</label>
-                <div class="color-box">
-                    <input type="color" id="lineColor" value="#000000">
+        <div class="control-group">
+            <div class="palette-container">
+                <div class="palette-group">
+                    <label>Wave Colour</label>
+                    <div class="palette-row" id="wavePalette">
+                        <!-- Palette injected via JS -->
+                    </div>
                 </div>
-            </div>
-            <div class="control-group">
-                <label>Background Colour</label>
-                <div class="color-box">
-                    <input type="color" id="bgColor" value="#e5e5e5">
+                <div class="palette-group">
+                    <label>Background Colour</label>
+                    <div class="palette-row" id="bgPalette">
+                        <!-- Palette injected via JS -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -376,6 +378,10 @@
         let currentImg = null;
         let generatedBars = [];  
 
+        const colors = ['#F73004', '#000000', '#F3F1DF', '#040436', '#FFFFFF'];
+        let selectedWaveColor = '#000000';
+        let selectedBgColor = '#F3F1DF';
+
         const STEP_X = 1; 
 
         let scale = 1;
@@ -383,6 +389,38 @@
         let panY = 0;
         let isDragging = false;
         let lastMousePos = { x: 0, y: 0 };
+
+        function initPalettes() {
+            const waveContainer = document.getElementById('wavePalette');
+            const bgContainer = document.getElementById('bgPalette');
+
+            colors.forEach(color => {
+                // Wave Palette
+                const wSwatch = document.createElement('div');
+                wSwatch.className = `palette-swatch ${color === selectedWaveColor ? 'active' : ''}`;
+                wSwatch.style.backgroundColor = color;
+                wSwatch.onclick = () => {
+                    selectedWaveColor = color;
+                    document.querySelectorAll('#wavePalette .palette-swatch').forEach(s => s.classList.remove('active'));
+                    wSwatch.classList.add('active');
+                    render();
+                };
+                waveContainer.appendChild(wSwatch);
+
+                // BG Palette
+                const bSwatch = document.createElement('div');
+                bSwatch.className = `palette-swatch ${color === selectedBgColor ? 'active' : ''}`;
+                bSwatch.style.backgroundColor = color;
+                bSwatch.onclick = () => {
+                    selectedBgColor = color;
+                    document.querySelectorAll('#bgPalette .palette-swatch').forEach(s => s.classList.remove('active'));
+                    bSwatch.classList.add('active');
+                    updateThemeColors();
+                    render();
+                };
+                bgContainer.appendChild(bSwatch);
+            });
+        }
 
         function updateCanvasTransform() {
             canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
