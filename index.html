@@ -309,6 +309,7 @@
         const controlIds = ['bgRemove', 'lineSpacing', 'amplitude', 'contrast'];
         controlIds.forEach(id => {
             const el = document.getElementById(id);
+            const labelId = 'val' + id.charAt(0).toUpperCase() + id.slice(1);
             const label = document.getElementById('val' + id.charAt(0).toUpperCase() + id.slice(1).replace('line', ''));
             el.addEventListener('input', (e) => {
                 if(label) label.innerText = e.target.value;
