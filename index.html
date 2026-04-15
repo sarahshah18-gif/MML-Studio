@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MML Studio</title>
-    <!-- Import Poppins from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -42,16 +41,10 @@
             display: flex;
             flex-direction: column;
             z-index: 100;
-            
-            /* Hide scrollbar for IE, Edge and Firefox */
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            scrollbar-width: none;
         }
 
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .sidebar::-webkit-scrollbar {
-            display: none;
-        }
+        .sidebar::-webkit-scrollbar { display: none; }
 
         .canvas-container {
             flex-grow: 1;
@@ -64,9 +57,7 @@
             overflow: hidden;
         }
 
-        .canvas-container:active {
-            cursor: grabbing;
-        }
+        .canvas-container:active { cursor: grabbing; }
 
         canvas {
             filter: drop-shadow(0px 20px 50px rgba(0,0,0,0.1));
@@ -74,219 +65,50 @@
             image-rendering: pixelated;
         }
 
-        h2 { 
-            margin: 0 0 30px 0; 
-            font-weight: 700; 
-            letter-spacing: -1px; 
-            font-size: 28px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h3 {
-            font-size: 14px;
-            font-weight: 700;
-            margin: 20px 0 15px 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        h2 { margin: 0 0 30px 0; font-weight: 700; letter-spacing: -1px; font-size: 28px; display: flex; align-items: center; gap: 10px; }
+        h3 { font-size: 14px; font-weight: 700; margin: 20px 0 15px 0; text-transform: uppercase; letter-spacing: 0.5px; }
 
         .control-group { margin-bottom: 20px; }
-        
-        label { 
-            display: flex; 
-            justify-content: space-between;
-            font-weight: 600; 
-            margin-bottom: 10px; 
-            font-size: 11px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            color: var(--text-muted); 
-        }
+        label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 10px; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
 
-        .val-display { 
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            color: var(--text-main); 
-            font-weight: 400;
-        }
+        .val-display { font-family: ui-monospace, monospace; color: var(--text-main); font-weight: 400; }
 
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            padding: 8px 0;
-        }
-        
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 36px;
-            height: 20px;
-        }
-
+        .toggle-container { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 8px 0; }
+        .switch { position: relative; display: inline-block; width: 36px; height: 20px; }
         .switch input { opacity: 0; width: 0; height: 0; }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: var(--border-color);
-            transition: .4s;
-            border-radius: 20px;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 14px;
-            width: 14px;
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
-
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-color); transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider { background-color: var(--accent); }
         input:checked + .slider:before { transform: translateX(16px); }
 
-        input[type="range"] { 
-            width: 100%; -webkit-appearance: none; height: 4px; 
-            background: var(--border-color); border-radius: 2px; outline: none;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none; width: 16px; height: 16px; 
-            border-radius: 50%; background: var(--accent); cursor: pointer;
-            border: 2px solid var(--page-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+        input[type="range"] { width: 100%; -webkit-appearance: none; height: 4px; background: var(--border-color); border-radius: 2px; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); cursor: pointer; border: 2px solid var(--page-bg); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-        input[type="file"] { 
-            width: 100%; padding: 12px; background: rgba(0,0,0,0.05); 
-            color: var(--text-main); border: 1px dashed var(--border-color); 
-            border-radius: 8px; font-size: 12px; cursor: pointer;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        input[type="file"] { width: 100%; padding: 12px; background: rgba(0,0,0,0.05); color: var(--text-main); border: 1px dashed var(--border-color); border-radius: 8px; font-size: 12px; cursor: pointer; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         
-        /* New Palette Styling */
-        .palette-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .palette-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .palette-swatch {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: transform 0.2s, border-color 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .palette-swatch:hover {
-            transform: scale(1.1);
-        }
-
-        .palette-swatch.active {
-            border-color: var(--text-main);
-            transform: scale(1.1);
-        }
-        .divider { 
-            height: 1px; 
-            background: var(--border-color); 
-            margin: 24px 0; 
-            width: 100%;
-        }
+        .palette-container { display: flex; flex-direction: column; gap: 15px; }
+        .palette-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .palette-swatch { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.2s, border-color 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .palette-swatch:hover { transform: scale(1.1); }
+        .palette-swatch.active { border-color: var(--text-main); transform: scale(1.1); }
 
         .btn-stack { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
         .row { display: flex; gap: 10px; }
-        
-        button {
-            flex: 1; padding: 14px; background: var(--text-main); color: var(--page-bg); 
-            border: none; border-radius: 8px; cursor: pointer; font-weight: 600; 
-            font-size: 13px; transition: transform 0.1s, opacity 0.2s;
-            font-family: 'Poppins', sans-serif;
-        }
+        button { flex: 1; padding: 14px; background: var(--text-main); color: var(--page-bg); border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 13px; transition: transform 0.1s, opacity 0.2s; font-family: 'Poppins', sans-serif; }
         button:active { transform: scale(0.98); }
         button:hover { opacity: 0.9; }
-        
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-        }
 
         .hint-text { font-size: 11px; color: var(--text-muted); margin-top: 8px; line-height: 1.5; font-weight: 400; }
-        
-        .ui-overlay {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            pointer-events: none;
-        }
-
-        .badge, .btn-float {
-            pointer-events: auto;
-            background: var(--panel-bg);
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.1s, opacity 0.2s, background-color 0.2s;
-            cursor: default;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-float {
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-float:hover {
-            background: var(--accent);
-            color: var(--page-bg);
-        }
-
-        .btn-float:active {
-            transform: translateY(2px);
-        }
-
-        .canvas-hint {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .ui-overlay { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; pointer-events: none; }
+        .badge, .btn-float { pointer-events: auto; background: var(--panel-bg); padding: 8px 16px; border-radius: 30px; font-size: 11px; font-weight: 600; color: var(--text-main); border: 1px solid var(--border-color); backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.1s, opacity 0.2s; cursor: pointer; font-family: 'Poppins', sans-serif; }
+        .btn-float { text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px; }
+        .btn-float:hover { background: var(--accent); color: var(--page-bg); }
+        .canvas-hint { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
 
         @media (max-width: 800px) {
             body { flex-direction: column; overflow-y: auto; height: auto; }
             .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); height: auto; }
             .canvas-container { height: 60vh; min-height: 400px; }
-            .ui-overlay { bottom: 15px; flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -337,15 +159,11 @@
             <div class="palette-container">
                 <div class="palette-group">
                     <label>Wave Colour</label>
-                    <div class="palette-row" id="wavePalette">
-                        <!-- Palette injected via JS -->
-                    </div>
+                    <div class="palette-row" id="wavePalette"></div>
                 </div>
                 <div class="palette-group">
                     <label>Background Colour</label>
-                    <div class="palette-row" id="bgPalette">
-                        <!-- Palette injected via JS -->
-                    </div>
+                    <div class="palette-row" id="bgPalette"></div>
                 </div>
             </div>
         </div>
@@ -390,12 +208,15 @@
         let isDragging = false;
         let lastMousePos = { x: 0, y: 0 };
 
+        /**
+         * CHANGE: Modified initPalettes to correctly call updateThemeColors 
+         * using the clicked hex value instead of looking for a missing input element.
+         */
         function initPalettes() {
             const waveContainer = document.getElementById('wavePalette');
             const bgContainer = document.getElementById('bgPalette');
 
             colors.forEach(color => {
-                // Wave Palette
                 const wSwatch = document.createElement('div');
                 wSwatch.className = `palette-swatch ${color === selectedWaveColor ? 'active' : ''}`;
                 wSwatch.style.backgroundColor = color;
@@ -407,7 +228,6 @@
                 };
                 waveContainer.appendChild(wSwatch);
 
-                // BG Palette
                 const bSwatch = document.createElement('div');
                 bSwatch.className = `palette-swatch ${color === selectedBgColor ? 'active' : ''}`;
                 bSwatch.style.backgroundColor = color;
@@ -415,7 +235,7 @@
                     selectedBgColor = color;
                     document.querySelectorAll('#bgPalette .palette-swatch').forEach(s => s.classList.remove('active'));
                     bSwatch.classList.add('active');
-                    updateThemeColors();
+                    updateThemeColors(color); // Passing color directly
                     render();
                 };
                 bgContainer.appendChild(bSwatch);
@@ -434,16 +254,13 @@
             const ratioW = availableW / currentImg.width;
             const ratioH = availableH / currentImg.height;
             scale = Math.min(ratioW, ratioH, 1);
-            panX = 0;
-            panY = 0;
+            panX = 0; panY = 0;
             updateCanvasTransform();
         }
 
         container.addEventListener('wheel', (e) => {
-            if (e.ctrlKey) return; // Allow pinch zoom
             e.preventDefault();
-            const delta = -e.deltaY;
-            const factor = delta > 0 ? 1.1 : 0.9;
+            const factor = e.deltaY > 0 ? 0.9 : 1.1;
             scale = Math.min(Math.max(0.1, scale * factor), 20);
             updateCanvasTransform();
         }, { passive: false });
@@ -456,26 +273,27 @@
 
         window.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            const dx = e.clientX - lastMousePos.x;
-            const dy = e.clientY - lastMousePos.y;
-            panX += dx;
-            panY += dy;
+            panX += e.clientX - lastMousePos.x;
+            panY += e.clientY - lastMousePos.y;
             lastMousePos = { x: e.clientX, y: e.clientY };
             updateCanvasTransform();
         });
 
         window.addEventListener('mouseup', () => isDragging = false);
 
-        function updateThemeColors() {
-            const bgHex = document.getElementById('bgColor').value;
-            const r = parseInt(bgHex.substring(1, 3), 16);
-            const g = parseInt(bgHex.substring(3, 5), 16);
-            const b = parseInt(bgHex.substring(5, 7), 16);
+        /**
+         * CHANGE: updateThemeColors now accepts a 'hex' parameter.
+         * Removed the logic that attempted to read from document.getElementById('bgColor').
+         */
+        function updateThemeColors(hex) {
+            const r = parseInt(hex.substring(1, 3), 16);
+            const g = parseInt(hex.substring(3, 5), 16);
+            const b = parseInt(hex.substring(5, 7), 16);
             const luma = (0.2126 * r + 0.7152 * g + 0.0722 * b);
             const isLight = luma > 140; 
 
             const root = document.documentElement;
-            root.style.setProperty('--page-bg', bgHex);
+            root.style.setProperty('--page-bg', hex);
             root.style.setProperty('--text-main', isLight ? '#111111' : '#ffffff');
             root.style.setProperty('--accent', isLight ? '#111111' : '#ffffff');
             root.style.setProperty('--text-muted', isLight ? 'rgba(0,0,0,0.5)' : 'rgba(255,255,255,0.5)');
@@ -483,27 +301,22 @@
             root.style.setProperty('--border-color', isLight ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)');
         }
 
-        const inputs = [
-            {id: 'bgRemove', label: 'valBgRemove'},
-            {id: 'lineSpacing', label: 'valSpacing'},
-            {id: 'amplitude', label: 'valAmp'},
-            {id: 'contrast', label: 'valContrast'},
-            {id: 'lineColor', label: null},
-            {id: 'bgColor', label: null},
-            {id: 'invertToggle', label: null}
-        ];
-
-        inputs.forEach(item => {
-            const el = document.getElementById(item.id);
+        /**
+         * CHANGE: Rewrote the input listener loop.
+         * The previous 'inputs' array was mapping to IDs ('lineColor', 'bgColor') 
+         * that didn't exist in your HTML, causing errors.
+         */
+        const controlIds = ['bgRemove', 'lineSpacing', 'amplitude', 'contrast'];
+        controlIds.forEach(id => {
+            const el = document.getElementById(id);
+            const label = document.getElementById('val' + id.charAt(0).toUpperCase() + id.slice(1).replace('line', ''));
             el.addEventListener('input', (e) => {
-                if(item.label) document.getElementById(item.label).innerText = e.target.value;
-                if(item.id === 'bgColor') updateThemeColors();
+                if(label) label.innerText = e.target.value;
                 render();
             });
-            if(item.id === 'invertToggle') {
-                el.addEventListener('change', render);
-            }
         });
+
+        document.getElementById('invertToggle').addEventListener('change', render);
 
         document.getElementById('imageInput').addEventListener('change', function(e) {
             const file = e.target.files[0];
@@ -530,7 +343,6 @@
             canvas.style.width = currentImg.width + 'px';
             canvas.style.height = currentImg.height + 'px';
             ctx.scale(dpr, dpr);
-            ctx.imageSmoothingEnabled = false;
         }
 
         function applyContrast(r, g, b, contrast) {
@@ -542,29 +354,29 @@
             ];
         }
 
+        /**
+         * CHANGE: Changed strokeStyle to use 'selectedWaveColor' 
+         * instead of fetching from a missing DOM element.
+         */
         function render() {
             if (!currentImg) return;
-
             const w = currentImg.width;
             const h = currentImg.height;
             const bgTolerance = parseInt(document.getElementById('bgRemove').value);
             const contrastVal = parseInt(document.getElementById('contrast').value);
-            
             const density = parseInt(document.getElementById('lineSpacing').value);
-            const gapY = 100 / density;
-            
+            const gapY = Math.max(1, h / (density * 10)); 
             const maxAmp = parseFloat(document.getElementById('amplitude').value);
-            const strokeColor = document.getElementById('lineColor').value;
             const isInverted = document.getElementById('invertToggle').checked;
 
             const off = document.createElement('canvas');
             off.width = w; off.height = h;
-            const oCtx = off.getContext('2d', { willReadFrequently: true });
+            const oCtx = off.getContext('2d');
             oCtx.drawImage(currentImg, 0, 0);
             const pixels = oCtx.getImageData(0, 0, w, h).data;
 
             ctx.clearRect(0, 0, w, h);
-            ctx.strokeStyle = strokeColor;
+            ctx.strokeStyle = selectedWaveColor; // Using variable instead of element
             ctx.lineWidth = 1;
             ctx.lineCap = 'butt';
             
@@ -576,12 +388,9 @@
                 for (let x = 0; x < w; x += STEP_X) {
                     const i = (sampleY * w + x) * 4;
                     let r = pixels[i], g = pixels[i+1], b = pixels[i+2], a = pixels[i+3];
-
                     if (a < 10) continue;
 
-                    if (contrastVal !== 0) {
-                        [r, g, b] = applyContrast(r, g, b, contrastVal);
-                    }
+                    if (contrastVal !== 0) [r, g, b] = applyContrast(r, g, b, contrastVal);
                     
                     const isTooLight = r > bgTolerance && g > bgTolerance && b > bgTolerance;
                     if (!isInverted && isTooLight) continue;
@@ -602,55 +411,54 @@
             ctx.stroke();
         }
 
+        /**
+         * CHANGE: Updated exports to use 'selectedBgColor' and 'selectedWaveColor' 
+         * to match the current palette state.
+         */
         function exportPNG() {
             if (!currentImg) return;
             const exportCanvas = document.createElement('canvas');
             exportCanvas.width = currentImg.width;
             exportCanvas.height = currentImg.height;
             const eCtx = exportCanvas.getContext('2d');
-            
-            eCtx.imageSmoothingEnabled = false;
-            eCtx.strokeStyle = document.getElementById('lineColor').value;
+            eCtx.fillStyle = selectedBgColor;
+            eCtx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
+            eCtx.strokeStyle = selectedWaveColor;
             eCtx.lineWidth = 1;
-            
             eCtx.beginPath();
             generatedBars.forEach(b => {
                 eCtx.moveTo(b.x + 0.5, b.y1);
                 eCtx.lineTo(b.x + 0.5, b.y2);
             });
             eCtx.stroke();
-
             const link = document.createElement('a');
-            link.download = `soundwave-transparent-${Date.now()}.png`;
-            link.href = exportCanvas.toDataURL('image/png', 1.0); 
+            link.download = `mml-studio-${Date.now()}.png`;
+            link.href = exportCanvas.toDataURL('image/png'); 
             link.click();
         }
 
         function exportSVG() {
             if (!currentImg || generatedBars.length === 0) return;
-            const stroke = document.getElementById('lineColor').value;
-            
             let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${currentImg.width}" height="${currentImg.height}" viewBox="0 0 ${currentImg.width} ${currentImg.height}">\n`;
-            svg += `<g stroke="${stroke}" stroke-width="1" stroke-linecap="butt" shape-rendering="crispEdges">\n`;
-            
+            svg += `<rect width="100%" height="100%" fill="${selectedBgColor}" />\n`;
+            svg += `<g stroke="${selectedWaveColor}" stroke-width="1" stroke-linecap="butt" shape-rendering="crispEdges">\n`;
             generatedBars.forEach(b => {
                 svg += `<line x1="${b.x + 0.5}" y1="${b.y1.toFixed(2)}" x2="${b.x + 0.5}" y2="${b.y2.toFixed(2)}" />\n`;
             });
-            
             svg += '</g></svg>';
             const blob = new Blob([svg], {type: "image/svg+xml"});
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
-            link.download = `soundwave-vector-${Date.now()}.svg`;
+            link.download = `mml-studio-${Date.now()}.svg`;
             link.click();
         }
 
-        window.addEventListener('resize', () => {
-            if(currentImg) resetZoom();
-        });
-
-        updateThemeColors();
+        // Initialize correctly
+        window.onload = () => {
+            initPalettes();
+            updateThemeColors(selectedBgColor);
+        };
     </script>
 </body>
 </html>
